@@ -15,7 +15,7 @@ import java.io.File;
 public class HopeBot{
     public static void main(String[] args) {
         try {
-            JDA jda = JDABuilder.createDefault("ODY5MDU0OTY1MDQwMTg1Mzc0.YP4ogQ.31RpmEzXns5jjJD47l1p4E26DIg").build();
+            JDA jda = JDABuilder.createDefault("대충 토큰").build();
             jda.setAutoReconnect(true);
 
             jda.addEventListener(new cmd());
