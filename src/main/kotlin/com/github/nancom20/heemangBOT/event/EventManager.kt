@@ -20,5 +20,4 @@ class EventManager: Component {
             l.onCommand(event, label, args)
         }
     }
-
 }

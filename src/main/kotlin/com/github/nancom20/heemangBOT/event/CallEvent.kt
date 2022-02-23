@@ -10,12 +10,18 @@ class CallEvent: ListenerAdapter() {
         val eventManager = Heemang.getEventManager()
         val msg = event.message
         val arg = msg.contentRaw.split(" ").toTypedArray()
+        val args = arg.toMutableList()
+
+        args.remove("HL!")
 
         if (event.author.isBot) return
 
-        if (arg[0] == "희망아") {
-            eventManager.commandNotifyListeners(event, arg[1], arg)
+        if (arg[0] == "HL!") {
+            try {
+                eventManager.commandNotifyListeners(event, arg[1], args.toTypedArray())
+            }catch (e: ArrayIndexOutOfBoundsException) {
+                event.message.reply("음ㅁ").queue()
+            }
         }
-
     }
 }
